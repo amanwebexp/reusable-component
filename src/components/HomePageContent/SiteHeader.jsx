@@ -17,7 +17,7 @@ function SiteHeader() {
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 border-slate-900 rounded-full border shadow-xl border-gray-800">
           <div className="flex items-center ml-5">
           <img
-              src="/acewebxlogo.png"
+              src="/home-logo.png"
               alt="Logo"
               className=" w-32 drop-shadow-lg"
             />

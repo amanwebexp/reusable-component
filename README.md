@@ -24,7 +24,7 @@ This project is built with Next.js and uses Shadcn UI, along with several other 
 Clone the project
 
 ```bash
-  git clone https://github.com/sushil-up/reusable-component
+  git clone https://github.com/amanwebexp/reusable-component
 ```
 
 

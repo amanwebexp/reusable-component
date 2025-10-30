@@ -4,18 +4,18 @@ import React from "react";
 
 function SiteFooter() {
   return (
-    <footer className="bg-slate-900 border-t border-gray-800 bg-gradient-to-r from-gray-900 via-gray-800 to-black py-12">
+    <footer className="bg-slate-900 border-t border-gray-800 bg-gradient-to-r from-[#ffcfcf] via-[#ffffff] to-[#ffcfcf] text-white py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 ml-5 lg:pl-20 lg:ml-20">
           <div>
-            <h3 className="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">
+            <h3 className="text-sm font-semibold text-[#333333] tracking-wider uppercase mb-4">
               Products
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Tailwind CSS
                 </Link>
@@ -23,7 +23,7 @@ function SiteFooter() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Tailwind UI
                 </Link>
@@ -31,7 +31,7 @@ function SiteFooter() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Headless UI
                 </Link>
@@ -39,14 +39,14 @@ function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">
+            <h3 className="text-sm font-semibold text-[#333333] tracking-wider uppercase mb-4">
               Resources
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Documentation
                 </Link>
@@ -54,7 +54,7 @@ function SiteFooter() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Screencasts
                 </Link>
@@ -62,7 +62,7 @@ function SiteFooter() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Playground
                 </Link>
@@ -70,14 +70,14 @@ function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">
+            <h3 className="text-sm font-semibold text-[#333333] tracking-wider uppercase mb-4">
               Community
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   GitHub
                 </Link>
@@ -85,7 +85,7 @@ function SiteFooter() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Discord
                 </Link>
@@ -93,7 +93,7 @@ function SiteFooter() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Twitter
                 </Link>
@@ -101,14 +101,14 @@ function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-slate-200 tracking-wider uppercase mb-4">
+            <h3 className="text-sm font-semibold text-[#333333] tracking-wider uppercase mb-4">
               Company
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   About
                 </Link>
@@ -116,7 +116,7 @@ function SiteFooter() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Blog
                 </Link>
@@ -124,7 +124,7 @@ function SiteFooter() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-700 hover:text-white transition-colors"
                 >
                   Careers
                 </Link>

@@ -14,37 +14,37 @@ function FeaturesSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
                         {
-                            icon: <Code className="h-8 w-8 text-sky-500" />,
+                            icon: <Code className="h-8 w-8 text-white" />,
                             title: "Developer experience",
                             description:
                                 "A fully-featured developer environment with instant reloads and an integrated component browser.",
                         },
                         {
-                            icon: <Zap className="h-8 w-8 text-sky-500" />,
+                            icon: <Zap className="h-8 w-8 text-white" />,
                             title: "Lightning-fast builds",
                             description:
                                 "Tailwind automatically removes all unused CSS in production, meaning your final build is as small as it could possibly be.",
                         },
                         {
-                            icon: <Palette className="h-8 w-8 text-sky-500" />,
+                            icon: <Palette className="h-8 w-8 text-white" />,
                             title: "Customization",
                             description:
                                 "Easily customize your design system to match your brand using our powerful theming features.",
                         },
                         {
-                            icon: <Layout className="h-8 w-8 text-sky-500" />,
+                            icon: <Layout className="h-8 w-8 text-white" />,
                             title: "Beautiful UI components",
                             description:
                                 "Over 500+ professionally designed, fully responsive UI components, ready to be copied and pasted into your projects.",
                         },
                         {
-                            icon: <Users className="h-8 w-8 text-sky-500" />,
+                            icon: <Users className="h-8 w-8 text-white" />,
                             title: "Collaborative",
                             description:
                                 "Built to be shared. Tailwind UI makes it easy for your entire team to contribute to your design system.",
                         },
                         {
-                            icon: <ChevronRight className="h-8 w-8 text-sky-500" />,
+                            icon: <ChevronRight className="h-8 w-8 text-white" />,
                             title: "Ready for production",
                             description:
                                 "Tailwind is used by tens of thousands of companies, and is battle-tested in production environments.",
@@ -52,7 +52,7 @@ function FeaturesSection() {
                     ].map((feature, index) => (
                         <motion.div
                             key={index}
-                            className="bg-slate-800 rounded-lg shadow-lg p-6 hover:bg-slate-700 transition-colors"
+                            className="bg-[#333333] rounded-lg shadow-lg p-6 hover:bg-[#b82025]  transition-colors"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -61,7 +61,7 @@ function FeaturesSection() {
                             <h3 className="text-xl font-semibold text-white mb-2">
                                 {feature.title}
                             </h3>
-                            <p className="text-slate-400">{feature.description}</p>
+                            <p className="text-slate-400 hover:text-white">{feature.description}</p>
                         </motion.div>
                     ))}
                 </div>

@@ -63,7 +63,7 @@ export default function LoginPage() {
   }, [session, router]);
 
   return (
-    <div className="bg-gradient-to-br from-amber-50 to-red-100">
+    <div className="bg-gradient-to-r from-[#ffcfcf] via-[#ffffff] to-[#ffcfcf]">
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="w-full max-w-md">
           {/* Logo */}

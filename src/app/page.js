@@ -11,7 +11,7 @@ import SiteHeader from "@/components/HomePageContent/SiteHeader";
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white font-sans relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-r from-[#ffcfcf] via-[#ffffff] to-[#ffcfcf]  text-white text-white font-sans relative overflow-hidden">
         <AnimatedBackground />
         <div className="relative z-10">
           {/* Site Header */}

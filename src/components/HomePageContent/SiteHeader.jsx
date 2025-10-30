@@ -14,10 +14,10 @@ function SiteHeader() {
   return (
     <>
       <header className=" sticky top-0 z-50 backdrop-blur border-none rounded-full w-full py-5 px-4">
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 border-slate-900 rounded-full border shadow-xl border-gray-800">
+        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 border-slate-900 rounded-full  shadow-xl border-gray-800">
           <div className="flex items-center ml-5">
           <img
-              src="/home-logo.png"
+              src="/acewebxlogo.png"
               alt="Logo"
               className=" w-32 drop-shadow-lg"
             />
@@ -34,14 +34,14 @@ function SiteHeader() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-slate-400 hover:text-slate-900 transition-colors"
+              className="md:hidden text-black hover:text-slate-900 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <Menu className="h-6 w-6" />
             </Button>
             <Button
-              variant="outline"
-              className="cursor-pointer hidden text-black md:inline-flex border-slate-700 hover:bg-slate-800 hover:bg-slate-200 transition-colors"
+              // variant="outline"
+              className="cursor-pointer bg-[#b82025] !text-white hidden text-black md:inline-flex border-slate-700 hover:bg-red-800 hover:bg-red-500 transition-colors"
               onClick={handleRedirect}
             >
               <LogIn />

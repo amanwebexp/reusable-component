@@ -158,7 +158,7 @@ export function AppSidebar({ ...props }) {
           <div>
             {/* <Button > */}
             <Link
-              href="https://github.com/sushil-up/reusable-component"
+              href="https://github.com/amanwebexp/reusable-component"
               target="_blank"
               rel="noopener noreferrer"
             >

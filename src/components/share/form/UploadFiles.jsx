@@ -1,0 +1,118 @@
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+
+const UploadFiles = ({ name, form, label, disable, className }) => {
+  // State to store files and their preview URLs
+  const [fileItems, setFileItems] = useState([]); // [{ id, file, url }]
+
+  // Handler for file selection
+  const handleFileChange = (e) => {
+    const newFiles = Array.from(e.target.files);
+
+    // Create objects with unique id, file reference, and preview URL
+    const newItems = newFiles.map((file) => ({
+      id: `${file.name}-${Date.now()}`,
+      url: URL.createObjectURL(file),
+      file,
+    }));
+
+    // Add new files to existing ones
+    const updatedItems = [...fileItems, ...newItems];
+    setFileItems(updatedItems);
+    // Update form state with current files
+    form.setValue(
+      name,
+      updatedItems.map((item) => item.file)
+    );
+  };
+
+  // Remove a file from the list
+  const removeFile = (id) => {
+    const updatedItems = fileItems.filter((item) => item.id !== id);
+    setFileItems(updatedItems);
+    // Update form state after removal
+    form.setValue(
+      name,
+      updatedItems.map((item) => item.file)
+    );
+  };
+
+  return (
+    <FormField
+      control={form?.control}
+      name={name}
+      render={() => (
+        <FormItem>
+          <FormLabel htmlFor={name}>{label}</FormLabel>
+          <FormControl>
+            <div>
+              {/* Hidden native input */}
+              <Input
+                id={name}
+                type="file"
+                multiple
+                disabled={disable}
+                className="hidden bg-white"
+                onChange={handleFileChange}
+              />
+
+              {/* Fake input showing filenames + custom Browse button */}
+              <div className="flex items-center gap-2">
+                <div className="w-[85%]">
+                  <input
+                    type="text"
+                    readOnly
+                    value={
+                      fileItems.length > 0
+                        ? fileItems.map((f) => f.file.name).join(", ")
+                        : ""
+                    }
+                    placeholder="No file chosen"
+                    className="form-control-height bg-white w-full cursor-default rounded border px-3 py-2 text-sm text-gray-600 bg-gray-100"
+                  />
+                </div>
+                <label htmlFor={name}>
+                  <span className="cursor-pointer rounded bg-[#b82025] px-6 py-3 text-sm text-white hover:bg-primary/90">
+                    Browse
+                  </span>
+                </label>
+              </div>
+
+              {/* Image previews */}
+              {fileItems.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {fileItems.map((item) => (
+                    <div key={item.id} className="relative">
+                      <img
+                        src={item.url}
+                        alt="Preview"
+                        className="max-h-32 w-40 rounded border"
+                      />
+                      <button
+                        type="button"
+                        className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-medium text-white"
+                        onClick={() => removeFile(item.id)}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+};
+
+export default UploadFiles;

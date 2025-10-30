@@ -1,0 +1,148 @@
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { FormProvider, useForm } from "react-hook-form";
+import { useState } from "react";
+import FormTextArea, {
+  codeStringTextArea,
+  textAreaImport,
+} from "../share/form/TextArea";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { Button } from "../ui/button";
+import { toast } from "sonner";
+
+const TextAreaInput = () => {
+  const form = useForm();
+
+  // State variables to manage copy buttons
+  const [copied, setCopied] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
+  const [textAreaCodeInstall, setTextAreaCodeInstall] = useState(false);
+
+  // Command to install the textarea component
+  const commandInstall = `npx shadcn@latest add textarea`;
+
+  // Copy install command to clipboard
+  const handleCommmandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setTextAreaCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setTextAreaCodeInstall(false), 2000);
+  };
+
+  // Copy textarea code snippet
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(codeStringTextArea);
+    setCopied(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  // Copy component import snippet
+  const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(textAreaImport);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  // Form submission handler
+  const onSubmit = (data) => {
+    toast("You submitted the following values", {
+      description: (
+        <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    });
+  };
+  return (
+    <>
+      <Card className="mt-5">
+        <CardHeader>
+          <CardTitle>Text Area Input</CardTitle>
+          <CardDescription>
+            Displays a form textarea or a component that looks like a textarea.
+          </CardDescription>
+          Command
+          <div className="relative">
+            <Button
+              onClick={handleCommmandCode}
+              className="absolute right-2 top-1 z-10"
+              variant="outline"
+              size="sm"
+            >
+              {textAreaCodeInstall ? "Copied!" : "Copy"}
+            </Button>
+            <SyntaxHighlighter language="javascript">
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <Tabs defaultValue="preview">
+            <TabsList>
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="import">Component Call</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="preview">
+              <FormProvider {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <FormTextArea
+                    form={form}
+                    name="textArea"
+                    placeholder="Enter Address"
+                    label="Text Area"
+                  />
+                  <Button type="submit" className="mt-5 text-white bg-red-800">
+                    Submit
+                  </Button>
+                </form>
+              </FormProvider>
+            </TabsContent>
+            <TabsContent value="code">
+              <div className="relative">
+                <Button
+                  onClick={handleCopy}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {copied ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {codeStringTextArea}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+            <TabsContent value="import">
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {textAreaImport}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+    </>
+  );
+};
+
+export default TextAreaInput;

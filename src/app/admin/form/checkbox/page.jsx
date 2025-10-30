@@ -1,0 +1,160 @@
+"use client";
+import CommonLayout from "@/components/CommanLayout";
+import CheckBox, {
+  checkboxCode,
+  checkboxImport,
+} from "@/components/share/form/Checkbox";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import React from "react";
+import { useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { toast } from "sonner";
+
+const CheckBoxField = () => {
+  const form = useForm();
+  const [copied, setCopied] = useState(false);
+  const [codeCopi, setCodeCopy] = useState(false);
+  const [checkboxCodeInstall, setCheckboxCodeInstall] = useState(false);
+
+  // Install command for checkbox
+  const commandInstall = `npx shadcn@latest add checkbox`;
+
+  // Copy checkbox code snippet
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(checkboxCode);
+    setCopied(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  // Copy checkbox component import
+  const handleComponentCode = async () => {
+    await navigator.clipboard.writeText(checkboxImport);
+    setCodeCopy(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCodeCopy(false), 2000);
+  };
+
+  // Copy install command
+  const handleCommandCode = async () => {
+    await navigator.clipboard.writeText(commandInstall);
+    setCheckboxCodeInstall(true);
+    toast.success("Copied to clipboard!");
+    setTimeout(() => setCheckboxCodeInstall(false), 2000);
+  };
+
+  // Submit handler for checkbox form
+  const onSubmit = (data) => {
+    toast("You submitted the following values", {
+      description: (
+        <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    });
+  };
+  return (
+    <>
+      <CommonLayout pageTitle={"Checkbox"} />
+      <Card className="mt-5">
+        <CardHeader>
+          <CardTitle>Checkbox</CardTitle>
+          <CardDescription>
+            A control that allows the user to toggle between checked and not
+            checked.
+          </CardDescription>
+          Command
+          <div className="relative items-center">
+            <Button
+              onClick={handleCommandCode}
+              className="absolute right-2 top-1 z-10"
+              variant="outline"
+              size="sm"
+            >
+              {checkboxCodeInstall ? "Copied!" : "Copy"}
+            </Button>
+            <SyntaxHighlighter language="javascript">
+              {commandInstall}
+            </SyntaxHighlighter>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <Tabs defaultValue="preview">
+            <TabsList>
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="import">Component Call</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="preview">
+              <FormProvider {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <CheckBox
+                    name="Discrepancy"
+                    label="Discrepancy"
+                    className=" !text-base flex gap-4"
+                    form={form}
+                    items={[
+                      {
+                        value: "true",
+                        label: "True",
+                      },
+                      {
+                        value: "false",
+                        label: "False",
+                      },
+                    ]}
+                  />
+                  <Button type="submit" className="mt-5 text-white bg-red-800">
+                    Submit
+                  </Button>
+                </form>
+              </FormProvider>
+            </TabsContent>
+            <TabsContent value="code">
+              <div className="relative">
+                <Button
+                  onClick={handleCopy}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {copied ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {checkboxCode}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+            <TabsContent value="import">
+              <div className="relative">
+                <Button
+                  onClick={handleComponentCode}
+                  className="absolute right-2 top-2 z-10"
+                  variant="outline"
+                  size="sm"
+                >
+                  {codeCopi ? "Copied!" : "Copy"}
+                </Button>
+                <SyntaxHighlighter language="javascript">
+                  {checkboxImport}
+                </SyntaxHighlighter>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+    </>
+  );
+};
+
+export default CheckBoxField;

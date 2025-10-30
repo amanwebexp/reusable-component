@@ -5,7 +5,7 @@ This project is built with Next.js and uses Shadcn UI, along with several other 
  The main feature of this project is a reusable component that allows users to copy code directly and use it in their own projects, or install the template for faster setup. 
 
 
-  https://github.com/sushil-up/reusable-component
+  https://github.com/amanwebexp/reusable-component
 
 ## Features
 

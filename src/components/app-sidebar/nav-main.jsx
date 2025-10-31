@@ -57,7 +57,7 @@ export default function NavMain({ homeItem, items }) {
     <SidebarGroup>
       <SidebarMenu>
         {/* ----------------- HOME MENU ITEM ----------------- */}
-        <SidebarMenuItem className="m-1 rounded">
+        <SidebarMenuItem className="m-1 rounded ">
           <SidebarMenuButton
             asChild
             tooltip={homeItem.title}
@@ -75,7 +75,7 @@ export default function NavMain({ homeItem, items }) {
               >
                 {homeItem.icon && <homeItem.icon />}
               </span>
-              <span>{homeItem.title}</span>
+              <span className="hover:text-white">{homeItem.title}</span>
             </Link>
           </SidebarMenuButton>
         </SidebarMenuItem>
@@ -92,7 +92,7 @@ export default function NavMain({ homeItem, items }) {
               open={isOpen}
               className="group/collapsible"
             >
-              <SidebarMenuItem className="m-1 rounded">
+              <SidebarMenuItem className="m-1 rounded hover:text-white">
                 <CollapsibleTrigger asChild>
                   <SidebarMenuButton
                     className={cn(
@@ -105,15 +105,15 @@ export default function NavMain({ homeItem, items }) {
                     {/* Always render the icon first */}
                     <span
                       className={cn(
-                        "menu-icon flex !h-7 !w-7 flex-shrink-0 items-center justify-center rounded p-1",
-                        isActive && "text-black"
+                        "menu-icon flex !h-7 !w-7 flex-shrink-0 items-center justify-center rounded p-1 ",
+                        isActive && "text-black "
                       )}
                     >
                       {item.icon && <item.icon />}
                     </span>
 
                     {/* Only show text if not collapsed */}
-                    <span className="truncate">{item.title}</span>
+                    <span className="truncate hover:text-white">{item.title}</span>
 
                     {/* Hide chevron in collapsed mode */}
                     {openSection === item.title && state !== "collapsed" && (
@@ -139,7 +139,7 @@ export default function NavMain({ homeItem, items }) {
                             <>
                               <CollapsibleTrigger asChild>
                                 <SidebarMenuSubButton className="theme-text-color cursor-pointer !rounded font-normal">
-                                  <div className="flex w-full items-center justify-between">
+                                  <div className="flex w-full items-center justify-between ">
                                     <span>{subItem.title}</span>
                                     <ChevronRight className="ml-auto w-4 transition-transform duration-200 text-[#b52123]" />
                                   </div>

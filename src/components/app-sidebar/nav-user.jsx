@@ -17,6 +17,8 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { routesUrl } from "../utils/routesUrl";
 
 export function NavUser() {
   const { isMobile } = useSidebar();
@@ -25,7 +27,7 @@ export function NavUser() {
   if (!session) return;
 
   const { user } = session;
-
+  const router = useRouter();
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -61,13 +63,12 @@ export function NavUser() {
           >
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={() => router.replace(routesUrl.account)}
+              >
                 <BadgeCheck />
                 Account
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
@@ -84,7 +85,6 @@ export function NavUser() {
     </SidebarMenu>
   );
 }
-
 
 export const navUserCode = `"use client";
 import { BadgeCheck, Bell, ChevronsUpDown, LogOutIcon } from "lucide-react";
@@ -171,4 +171,4 @@ export function NavUser() {
     </SidebarMenu>
   );
 }
-`
+`;

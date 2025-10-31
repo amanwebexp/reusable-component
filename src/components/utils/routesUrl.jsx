@@ -21,5 +21,6 @@ export const routesUrl = {
   drawer: '/admin/components/drawer',
   sideBar: '/admin/components/sideBar',
   toaster: '/admin/components/toaster',
-  sheet: '/admin/components/sheet'
+  sheet: '/admin/components/sheet',
+  account:'/admin/account'
 };

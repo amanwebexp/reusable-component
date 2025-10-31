@@ -1,7 +1,7 @@
 const DashboardFooter = () => {
   return (
     <div className='flex justify-center border-t-2 p-5'>
-      2025 © NextUI Kit With Shadcn
+       Copyright © 2025 All Rights Reserved by AcewebX
     </div>
   )
 }
